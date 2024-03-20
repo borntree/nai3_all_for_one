@@ -203,11 +203,6 @@ if read_mode == -1:
 else:
     random_mode = False
 
-# 生成并保存图像
-image_data = generator.generate_image("prefix", random_mode=random_mode)
-save_image_from_binary(image_data, "image_folder")
-
-
 while 1:
     if generate_num > num_images and generator.generate_files_num() == 0:
         break
