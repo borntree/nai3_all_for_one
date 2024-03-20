@@ -204,7 +204,7 @@ else:
     random_mode = False
 
 # 生成并保存图像
-image_data = generator.generate_image("prefix_", random_mode=random_mode)
+image_data = generator.generate_image("prefix", random_mode=random_mode)
 save_image_from_binary(image_data, "image_folder")
 
 
