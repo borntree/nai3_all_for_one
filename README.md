@@ -30,12 +30,15 @@ https://github.com/wochenlong/nai3_train/blob/main/README.md
     - 输出的字符串就是你的授权令牌
   
   获取方法2：
-  ![Image](https://github.com/users/borntree/projects/1/assets/82987943/f66b25b8-a298-43fc-9c09-0f19287e6ae6)
+  ![1710935456763](https://github.com/borntree/nai3_all_for_one/assets/82987943/6ce4ecc7-d5b5-4351-bc02-ea1e3e1771be)
 
 2.下次运行脚本前请清空7_pack文件夹内的文件，否则可能发生意外
 
 3.因为本人是做头像的，因此大图片拼合都是1024*1024，其他尺寸并未研究，不过只是出图不拼合的话并不影响(建议直接用[nai3_train](https://github.com/wochenlong/nai3_train
 ))。
+
+4.因此项目基本为本人自我定制的项目，最终生成图片数量必定为9的倍数，想要更改为其他数量清将all_for_one.py 225行左右的if generator.generate_files_num() == 9:的9修改
+若要更改拼合数量请再将9imgs.py 参数IMAGE_ROW = 3和IMAGE_COLUMN = 3修改
 
 ## 安装运行环境
 
@@ -46,7 +49,28 @@ pip install -r requirements.txt
 ```
 
 ## 运行
-`python nai3_all_for_one.py`
+首先确认你已经认真搞好token.txt
+`python all_for_one.py`
+
+# 参数
+
+## 关键词
+默认角色关键词(前置关键词)读取1_character内的genshin_poimiku
+```javascript
+{
+  "role": [
+    "aether (genshin impact) ", #自定角色prompt，你可以把它当为前置关键词，role只是一个命名而已
+    "..."
+  ]
+}
+```
+在all_for_one导入库语句下有注释，尾部关键词同理
+```javascript
+# 用户自定义 角色 JSON 文件的路径
+characters_path = r"./1_character/genshin_poimiku.json"
+# 用户自定义 尾部关键词 JSON 文件的路径
+append_prompt_path = r"./3_append_prompt/append_prompt.json"
+```
 
 ## 图片拼合
 ```javascript
